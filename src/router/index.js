@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import {nextTick} from "vue";
+import {nextTick, computed} from "vue";
+import i18n from "../i18n";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,8 +8,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView,
-      meta:{title:'home'}
+      component: () => import('../views/HomeView.vue'),
+      meta:{title: 'home'}
     },
     {
       path: '/about',
@@ -23,10 +23,12 @@ const router = createRouter({
     }
   ]
 })
-const DEFAULT_TITLE = 'Default Title';
+
+const DEFAULT_TITLE = 'TEST';
 router.afterEach(to => {
-  const title = to.meta.title ? to.meta.title : DEFAULT_TITLE;
+  const title = to.meta.title ? i18n.global.t('route.'+to.meta.title) : DEFAULT_TITLE;
   nextTick(()=> document.title = title)
 })
+
 
 export default router

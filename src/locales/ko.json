@@ -6,5 +6,10 @@
   "ecosystem": "에코시스템",
   "community": "커뮤니티",
   "support": "지원",
-  "youdidit": "해냈구나!"
+  "youdidit": "해냈구나!",
+
+  "route": {
+    "home": "홈",
+    "about": "어바웃"
+  }
 }

@@ -7,7 +7,8 @@ import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
 
 import {useI18n} from "vue-i18n";
-const { locale } = useI18n({ useScope: 'global' })
+const {  locale } = useI18n({ useScope: 'global' })
+const i18n = useI18n();
 
 const changeLocale = () =>{
   locale.value = locale.value === "en" ? "ko": "en";
