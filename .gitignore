@@ -26,3 +26,6 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+#Auth
+/src/assets/config/swift-reef-398705-e0f0b6e8a1c5.json
