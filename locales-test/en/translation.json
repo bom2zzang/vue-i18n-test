@@ -1,1 +1,15 @@
-{}
+{
+  "changeLocale": "change Locale",
+  "title": "Title",
+  "doc": "Documentation",
+  "tooling": "Tooling",
+  "ecosystem": "Ecosystem",
+  "community": "Community",
+  "support": "Support Vue",
+  "youdidit": "You did it!",
+  "route": {
+    "home": "Home",
+    "about": "About"
+  },
+  "test": "Test"
+}

@@ -11,12 +11,9 @@ async function makeTranslationsMapFromSheet(doc) {
 
     const lngsMap = {};
     const rows = await sheet.getRows();
-    console.log(`sheet=${sheet}`);
-console.log(rows.length)
     rows.forEach((row) => {
-console.log(row);
         lngs.forEach((lang) => {
-            _.set(lngsMap, `${lang}.${row.key}`, row[lang])
+            _.set(lngsMap, `${lang}.${row.get('key')}`, row.get(lang))
         })
     });
 
@@ -57,12 +54,8 @@ async function updateJsonFromSheet() {
 
         lngs.forEach((lng) => {
             const localeJsonFilePath = `${localesPath}/${lng}/${fileNm}.json`;
-
             const jsonString = JSON.stringify(lngsMap[lng], null, 2);
-        console.log(lngsMap[lng])
 
-console.log("localeJsonFilePath= "+ localeJsonFilePath);
-console.log("jsonString= "+ jsonString);
             fs.writeFile(localeJsonFilePath, jsonString, 'utf8', (err) => {
                 if (err) {
                     console.error('파일 쓰기 오류:', err);
